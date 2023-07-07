@@ -12,6 +12,7 @@
         <h1>Numbers</h1>
     </header>
     <div class="center">
+        <h1>LEVEL THREE</h1>
         <div id="board-container">
             <div class="row">
                 <div class="block">
@@ -157,6 +158,9 @@
         <br>
         <p class="text-center"><a href="{{('levels')}}"><button class="button" type="button" style="width:90px; font-size:30px;">Back</button> </a>   </p> <br>
         <div class="score"></div>
+        <div id="next-level" style="display: none;">
+            <a href="{{('level4')}}"><button class="button" type="button" style="font-size:20px;">NEXT LEVEL UNLOCKED</button></a>
+        </div>
     </div>
 <script>
 let set_numbers = []; // Array of set numbers
@@ -293,6 +297,10 @@ function calculate() {
 function showScore() {
     const scoreDiv = document.querySelector('.score'); // Selects the score from the html element class name
     scoreDiv.textContent = `Score: ${score} / ${number_rows}`; // Adds the score and number of rows for display in the html
+
+    if (score === number_rows) {
+            document.getElementById('next-level').style.display = 'block';
+    }
 }
 
 // Disables user inputs, is used for when users finish all equations
